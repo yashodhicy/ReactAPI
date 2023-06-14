@@ -3,7 +3,7 @@ const url = 'https://randomuser.me/api/?results=5'
 
 export const fetchUsersAsync = createAsyncThunk (
         'users/fetchUsers',
-        async () => {
+        async (_, thunkAPI) => {
             try {
                 const response = await fetch(url);
                 console.log(response);
@@ -13,7 +13,7 @@ export const fetchUsersAsync = createAsyncThunk (
                 const data = await response.json();
                 return data;
               } catch (error) {
-                return error.message;
+                return thunkAPI.rejectWithValue(error);
               }
         }
 )

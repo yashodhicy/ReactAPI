@@ -32,7 +32,7 @@ const FetchUsers = () => {
         <li key={user.login.uuid}>
             {user.name.first} {user.name.last}
         </li>
-    ))};
+    ))}
     </ul>
     </>
   )
